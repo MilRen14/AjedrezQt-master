@@ -29,7 +29,6 @@ void box::resetOriginalColor()
 void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
         if(currentPiece == juego->pieceToMove && currentPiece){
-
             currentPiece->mousePressEvent(event);
             return;
         }
