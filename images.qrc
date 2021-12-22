@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pawnB.png</file>
+        <file>pawnW.png</file>
+        <file>rookW.png</file>
+        <file>kingW.png</file>
+        <file>queenW.png</file>
+        <file>bishopW.png</file>
+        <file>horseW.png</file>
+        <file>kingB.png</file>
+        <file>queenB.png</file>
+        <file>bishopB.png</file>
+        <file>horseB.png</file>
+        <file>rookB.png</file>
+        <file>pawnBm.png</file>
+        <file>bishopBm.png</file>
+        <file>bishopWm.png</file>
+        <file>horseBm.png</file>
+        <file>horseWm.png</file>
+        <file>kingBm.png</file>
+        <file>kingWm.png</file>
+        <file>pawnWm.png</file>
+        <file>queenBm.png</file>
+        <file>queenWm.png</file>
+        <file>rookBm.png</file>
+        <file>rookWm.png</file>
+        <file>WinW.jpg</file>
+        <file>WinB.jpg</file>
+        <file>TimeA.png</file>
+        <file>TimeB.png</file>
+    </qresource>
+</RCC>
