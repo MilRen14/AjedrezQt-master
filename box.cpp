@@ -26,45 +26,29 @@ void box::resetOriginalColor()
 {
     setColor(originalColor);
 }
-
 void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-
         if(currentPiece == juego->pieceToMove && currentPiece){
 
             currentPiece->mousePressEvent(event);
             return;
         }
-
-
         if(juego->pieceToMove){
-
             if(this->getPieceColor() == juego->pieceToMove->getTeam())
                 return;
-
             QList <box *> movLoc = juego->pieceToMove->moveLocation();
-
             int check = 0;
             for(size_t i = 0, n = movLoc.size(); i < n;i++) {
                 if(movLoc[i] == this) {
                     check++;
-
                 }
             }
-
             if(check == 0)
                 return;
-
              juego->pieceToMove->color();
-
-
-
-
              juego->pieceToMove->firstMove = false;
             bool capture = false;
-
             if(this->getHasPiece()){
-
                 this->currentPiece->resizeImage();
                  this->currentPiece->setIsPlaced(false);
                if(this->currentPiece->getTeam()=="WHITE"){
@@ -72,7 +56,6 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
                   if(!(this->currentPiece->getIsPlaced())){
                 int col=5;
-
                int i=0,j=0;
                 //posicion x inicial de la pieza
                 int xInicial=20;
@@ -82,25 +65,18 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
                 i=(t%col)*60;
                 j=(t/col)*60;
-
                 //asignacion de posicion de la pieza
                  this->currentPiece->setPos(i+xInicial,j+yInicial);
-
                 // this->currentPiece->~Piece();
-
-
-
                 this->currentPiece->setIsPlaced(true);
                 //la pieza a sido capturada
                }
                }
-
                if(this->currentPiece->getTeam()=="BLACK"){
                     this->currentPiece->resizeImage();
 
                   if(!(this->currentPiece->getIsPlaced())){
                 int col=5;
-
                int K=0,M=0;
                 //posicion x inicial de la pieza
                 int xinicial=20;
@@ -116,15 +92,9 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
                 this->currentPiece->setIsPlaced(true);
                 //la pieza a sido capturada
-
-
                }
-
                }
          }
-
-
-            juego->pieceToMove->getCurrentBox()->setHasPiece(false);
             juego->pieceToMove->getCurrentBox()->currentPiece = NULL;
             juego->pieceToMove->getCurrentBox()->resetOriginalColor();
 
@@ -135,7 +105,6 @@ void box::mousePressEvent(QGraphicsSceneMouseEvent *event)
             juego->changeTurn();
             VeriCheck();
         }
-
         else if(this->getHasPiece())
         {
             this->currentPiece->mousePressEvent(event);
@@ -149,7 +118,6 @@ void box::setPieceColor(QString value)
 {
     PieceColor = value;
 }
-
 QString box::getPieceColor()
 {
     return PieceColor;
@@ -159,7 +127,6 @@ bool box::getHasPiece()
 {
     return hasPiece;
 }
-
 void box::placePiece(Piece *piece)
 {
     piece->setPos(x()+50- piece->pixmap().width()/2  ,y()+50-piece->pixmap().width()/2);
@@ -200,7 +167,6 @@ void box::movedPiece(Piece *piece, bool& capture)
             delete juego->blackTable[8];
             tam = 8;
         }
-
         for(int i = tam; i>0; i--)
         {
             juego->whiteTable[i] = juego->whiteTable[i-1];
@@ -225,19 +191,16 @@ void box::setHasPiece(bool value, Piece *piece)
     else
         setPieceColor("NONE");
 }
-
 void Piece::color()
 {
     for(size_t i = 0, n = location.size(); i < n;i++) {
          location[i]->resetOriginalColor();
     }
 }
-
 void box::VeriCheck(){
     int c = 0;
     QList <Piece *> pList = juego->alivePiece;
     for(size_t i = 0,n=pList.size(); i < n; i++ ) {
-
         king * p = dynamic_cast<king *> (pList[i]);
         if(p){
             continue;
@@ -262,19 +225,14 @@ void box::VeriCheck(){
                         juego->addItem(new QGraphicsPixmapItem((QPixmap(":/WinW.jpg"))));
                     }else
                         juego->addItem(new QGraphicsPixmapItem((QPixmap(":/WinB.png"))));
-
                 }
                 c++;
-
             }
         }
-
-
     }
     if(!c){
         juego->check->setVisible(false);
         for(size_t i = 0,n=pList.size(); i < n; i++ )
             pList[i]->getCurrentBox()->resetOriginalColor();
     }
-
 }
