@@ -31,7 +31,6 @@ void Bishop::moves()
     for(int i = row-1,j = col-1; i >= 0 && j >=0; i--,j--) {
        if(juego->collection[i][j]->getPieceColor() == team ) {
            break;
-
        }
        else
        {
@@ -44,7 +43,6 @@ void Bishop::moves()
       for(int i = row-1,j = col+1; i >= 0 && j <= 7; i--,j++) {
         if(juego->collection[i][j]->getPieceColor() == team ) {
             break;
-
         }
         else
         {
@@ -54,7 +52,6 @@ void Bishop::moves()
             }
         }
      }
-
        for(int i = row+1,j = col+1; i <= 7 && j <= 7; i++,j++) {
          if(juego->collection[i][j]->getPieceColor() == team ) {
              break;
