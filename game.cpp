@@ -54,10 +54,7 @@ void game::drawBoard()
 
     chess->drawTables();
     std::cout<<width()<<std::endl;
-
-
 }
-
 void game::drawTable()
 {
     int y = 1;
@@ -94,7 +91,6 @@ void game::displayMainMenu()
 {
     drawBoard();
     chess->addPiece();
-
 }
 QString game::getTurn()
 {
